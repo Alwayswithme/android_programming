@@ -75,6 +75,10 @@ public class CheatActivity extends AppCompatActivity {
                 }
             }
         });
+
+        TextView apiTextView = (TextView) findViewById(R.id.api_text_view);
+        String apiLevel = "API level " + Build.VERSION.SDK_INT;
+        apiTextView.setText(apiLevel);
     }
 
     private void setAnswerShownResult(boolean isAnswerShown) {
