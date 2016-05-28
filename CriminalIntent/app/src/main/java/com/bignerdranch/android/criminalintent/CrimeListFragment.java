@@ -1,6 +1,5 @@
 package com.bignerdranch.android.criminalintent;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -41,17 +40,9 @@ public class CrimeListFragment extends Fragment {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CRIME && resultCode == Activity.RESULT_OK) {
-            int position = data.getIntExtra(EXTRA_POS, -1);
-            mAdapter.notifyItemChanged(position);
-        }
-    }
-
-    public static Intent resultIntent(int pos) {
-        Intent intent = new Intent();
-        intent.putExtra(EXTRA_POS, pos);
-        return intent;
+    public void onResume() {
+        super.onResume();
+        updateUI();
     }
 
     private void updateUI() {
@@ -90,9 +81,8 @@ public class CrimeListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = CrimeActivity.newIntent(getActivity(), mCrime.getId(), getLayoutPosition());
-            startActivityForResult(intent, REQUEST_CRIME);
-            mAdapter.notifyItemChanged(getLayoutPosition());
+            Intent intent = CrimePagerActivity.newIntent(getActivity(), mCrime.getId());
+            startActivity(intent);
         }
     }
 
