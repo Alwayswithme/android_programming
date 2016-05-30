@@ -3,9 +3,6 @@ package com.bignerdranch.android.criminalintent;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * Created by phoenix on 5/28/16.
- */
 public class Crime {
 
     private UUID mId;
