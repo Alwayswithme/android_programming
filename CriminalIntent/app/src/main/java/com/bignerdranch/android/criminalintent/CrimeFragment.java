@@ -19,9 +19,6 @@ import android.widget.EditText;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * Created by phoenix on 5/28/16.
- */
 public class CrimeFragment extends Fragment {
 
     private static final String ARG_CRIME_ID = "crime_id";
